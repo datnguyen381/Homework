@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      * {
+        font-family: Arial, Helvetica, sans-serif;
+        color: #3e64ff;
+      }
+      form {
+        display: inline-block;
+        padding: 20px 50px 50px 50px;
+        border: solid 2px #5edfff;
+        text-align: center;
+        background-color: #ecfcff;
+      }
+      label {
+        width: 100px;
+        display: inline-block;
+        font-weight: bold;
+      }
+      input {
+        padding: 5px;
+      }
+      button {
+        width: 250px;
+        padding: 10px;
+        border-style: none;
+        font-size: 20px;
+        font-weight: bold;
+        color: white;
+        background-color: #3e64ff;
+      }
+      div {
+        margin-bottom: 20px;
+      }
+    </style>
+    <title>Exercise</title>
+  </head>
+  <body>
+    <!--Form-->
+    <form>
+      <h1>Tính Xếp Loại</h1>
+      <div>
+        <label for="name">Họ Và Tên</label>
+        <input type="text" name="name" id="name" placeholder="Nhập Họ Và Tên" />
+      </div>
+      <div>
+        <label for="score">Điểm</label>
+        <input type="number" name="score" id="score" placeholder="Nhập Điểm" />
+      </div>
+      <button type="submit">Xếp Loại</button>
+    </form>
+    <!--Function-->
+    <script>
+      //Assign Value
+      let name = document.querySelector("#name");
+      let score = document.querySelector("#score");
+      let button = document.querySelector("button");
+
+      //Rank Function
+      button.addEventListener("click", function() {
+        if (name.value == "" || score.value == "") {
+          alert("Vui lòng nhập đủ dữ liệu");
+        } else if (score.value < 0 || score.value > 10)
+          alert("Không Hợp Lệ - Vui Lòng Thử Lại");
+        else if (score.value < 5) alert(name.value + " " + "Đạt Xếp Loại Yếu");
+        else if (score.value < 6.5)
+          alert(name.value + " " + "Đạt Xếp Loại Trung Bình");
+        else if (score.value < 8) alert(name.value + " " + "Đạt Xếp Loại Khá");
+        else alert(name.value + " " + "Đạt Xếp Loại Giỏi");
+      });
+    </script>
+  </body>
+</html>
